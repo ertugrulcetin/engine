@@ -185,7 +185,8 @@ class AnimController {
 
         const activeClip = this._animEvaluator.findClip(this.activeStateAnimations[0].name);
         if (activeClip) {
-            return time / activeClip.track.duration;
+            const speed = this.activeStateAnimations[0].speed;
+            return (time * speed) / activeClip.track.duration;
         }
 
         return null;
